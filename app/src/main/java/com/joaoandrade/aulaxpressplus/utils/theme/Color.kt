@@ -1,4 +1,4 @@
-package com.joaoandrade.aulaxpressplus.ui.theme
+package com.joaoandrade.aulaxpressplus.utils.theme
 
 import androidx.compose.ui.graphics.Color
 
