@@ -1,6 +1,6 @@
 [versions]
 agp = "8.8.0"
-kotlin = "2.0.0"
+kotlin = "2.0.0-RC2"
 coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -16,6 +16,12 @@ firebaseDatabase = "21.0.0"
 firebaseCore = "21.1.1"
 lottieCompose = "6.6.0"
 composeNavigation = "2.7.7"
+kspVersion = "2.0.0-RC2-1.0.20"
+constraintlayout = "2.2.0"
+constraintCompose = "1.0.1"
+constraintlayoutComposeAndroid = "1.1.0"
+playServices = "21.2.0"
+icons = "1.7.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -38,16 +44,22 @@ firebase-analytics-ktx = { group = "com.google.firebase", name = "firebase-analy
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx" }
 firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx" }
 android-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+android-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltComposeNavigation" }
-androidx-hilt-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltComposeNavigation" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBOM" }
 firebase-database-ktx = { group = "com.google.firebase", name = "firebase-database-ktx", version.ref = "firebaseDatabase" }
 firebase-core = { group = "com.google.firebase", name = "firebase-core", version.ref = "firebaseCore" }
 lottie-compose = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottieCompose" }
+androidx-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintCompose" }
+androidx-constraintlayout-compose-android = { group = "androidx.constraintlayout", name = "constraintlayout-compose-android", version.ref = "constraintlayoutComposeAndroid" }
+play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServices" }
+material-icons = { group = "androidx.compose.material", name = "material-icons-core", version.ref = "icons" }
+material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "icons" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }

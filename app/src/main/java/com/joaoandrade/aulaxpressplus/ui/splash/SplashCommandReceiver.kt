@@ -4,8 +4,14 @@ import com.joaoandrade.aulaxpressplus.shared.bases.Command
 import com.joaoandrade.aulaxpressplus.shared.bases.CommandReceiver
 
 interface SplashCommandReceiver :
-    CommandReceiver<SplashCommandReceiver>{
+    CommandReceiver<SplashCommandReceiver> {
     override fun executeCommand(command: Command<SplashCommandReceiver>) {
         command.execute(this)
     }
+
+    fun onAnimationStart()
+
+    fun onAnimationIteration(iteration: Int)
+
+    fun onAnimationEnd()
 }

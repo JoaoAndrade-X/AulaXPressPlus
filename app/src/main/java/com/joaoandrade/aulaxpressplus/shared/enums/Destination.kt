@@ -1,7 +1,10 @@
 package com.joaoandrade.aulaxpressplus.shared.enums
 
 enum class Destination {
-    SPLASH_SCREEN,
+    SPLASH_DESTINATION,
+    LOGIN_DESTINATION,
+    HOME_DESTINATION,
+    REGISTER_DESTINATION,
     ;
 
     val route get() = this.name.lowercase()
