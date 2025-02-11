@@ -61,7 +61,6 @@ dependencies {
     implementation(libs.androidx.constraintlayout.compose.android)
     ksp(libs.android.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
-    implementation(libs.androidx.constraintlayout.compose)
     implementation(libs.play.services.auth)
     implementation(libs.androidx.appcompat)
     implementation(platform(libs.firebase.bom))

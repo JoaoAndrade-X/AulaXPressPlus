@@ -49,10 +49,11 @@ import com.joaoandrade.aulaxpressplus.shared.bases.Screen
 import com.joaoandrade.aulaxpressplus.shared.enums.Destination
 import com.joaoandrade.aulaxpressplus.utils.components.userHasUsername
 
-val loginDestination = buildScreenDestination<LoginViewModel, LoginCommandReceiver, LoginUiState>(
-    Destination.LOGIN_DESTINATION,
-    LoginScreen,
-)
+val loginDestination =
+    buildScreenDestination<LoginViewModel, LoginCommandReceiver, LoginUiState>(
+        Destination.LOGIN_DESTINATION,
+        LoginScreen,
+    )
 
 internal object LoginScreen: Screen<LoginUiState, LoginCommandReceiver> {
     @Composable

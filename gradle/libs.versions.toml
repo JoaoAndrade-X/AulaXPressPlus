@@ -51,7 +51,6 @@ firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.r
 firebase-database-ktx = { group = "com.google.firebase", name = "firebase-database-ktx", version.ref = "firebaseDatabase" }
 firebase-core = { group = "com.google.firebase", name = "firebase-core", version.ref = "firebaseCore" }
 lottie-compose = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottieCompose" }
-androidx-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintCompose" }
 androidx-constraintlayout-compose-android = { group = "androidx.constraintlayout", name = "constraintlayout-compose-android", version.ref = "constraintlayoutComposeAndroid" }
 play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServices" }
 material-icons = { group = "androidx.compose.material", name = "material-icons-core", version.ref = "icons" }
