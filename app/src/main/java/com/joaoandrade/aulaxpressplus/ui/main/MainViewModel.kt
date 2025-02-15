@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavHostController
 import com.joaoandrade.aulaxpressplus.navigation.ScreenDestination
 import com.joaoandrade.aulaxpressplus.shared.enums.NavigationControllerType
+import com.joaoandrade.aulaxpressplus.shared.enums.Theme
 import com.joaoandrade.aulaxpressplus.shared.providers.NavControllerProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,7 +30,12 @@ internal class MainViewModel
 
         private fun initUiState() =
             viewModelScope.launch {
-                _uiState.update { it.copy(allScreenDestinations = allScreenDestinations.toList()) }
+                _uiState.update {
+                    it.copy(
+                        allScreenDestinations = allScreenDestinations.toList(),
+                        theme = Theme.getTheme(Theme.LIGHT.name)
+                    )
+                }
             }
 
         override fun setNavHostController(navHostController: NavHostController) {
@@ -37,5 +43,11 @@ internal class MainViewModel
                 NavigationControllerType.MAIN_NAVIGATION,
                 navHostController
             )
+        }
+
+        override fun onStart() {
+            viewModelScope.launch {
+                navControllerProvider.getCurrentRoute(NavigationControllerType.MAIN_NAVIGATION)
+            }
         }
 }

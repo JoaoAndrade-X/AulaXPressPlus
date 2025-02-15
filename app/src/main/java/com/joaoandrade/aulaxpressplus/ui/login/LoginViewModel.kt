@@ -24,14 +24,14 @@ internal class LoginViewModel
         override val uiState = _uiState.asStateFlow()
 
     override fun goToMain() {
-        navigationProvider.navigate(
-            Destination.HOME_DESTINATION,
-            NavigationMode.CLEAR_SCREEN_STACK,
-        )
+//        navigationProvider.navigate(
+//            Destination.HOME_DESTINATION,
+//            NavigationMode.CLEAR_SCREEN_STACK,
+//        )
     }
 
     override fun goToRegister() {
-        navigationProvider.navigate(Destination.REGISTER_DESTINATION)
+        // navigationProvider.navigate(Destination.REGISTER_DESTINATION)
     }
 
     override fun setUserIdNotFoundError() {

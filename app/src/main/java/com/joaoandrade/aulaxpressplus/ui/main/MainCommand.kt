@@ -9,4 +9,10 @@ internal sealed interface MainCommand: Command<MainCommandReceiver> {
             receiver.setNavHostController(navHostController)
         }
     }
+
+    data object OnStart: MainCommand {
+        override fun execute(receiver: MainCommandReceiver) {
+            receiver.onStart()
+        }
+    }
 }
