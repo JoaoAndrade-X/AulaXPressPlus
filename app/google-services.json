@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1001937113800",
+    "project_id": "aulaxpressplus",
+    "storage_bucket": "aulaxpressplus.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001937113800:android:dbf113ff18e00f919ecbfd",
+        "android_client_info": {
+          "package_name": "com.joaoandrade.aulaxpressplus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMaC1r7TJOyDSluVwE0MM5B2aNdxTkrrw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
