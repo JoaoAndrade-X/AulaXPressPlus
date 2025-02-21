@@ -33,19 +33,19 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.joaoandrade.aulaxpressplus.R
+import com.joaoandrade.aulaxpressplus.dimensions.components
 import com.joaoandrade.aulaxpressplus.dimensions.fontSizes
+import com.joaoandrade.aulaxpressplus.dimensions.spacings
 import com.joaoandrade.aulaxpressplus.navigation.buildScreenDestination
 import com.joaoandrade.aulaxpressplus.shared.bases.Command
 import com.joaoandrade.aulaxpressplus.shared.bases.Screen
 import com.joaoandrade.aulaxpressplus.shared.enums.Destination
 
 val loginDestination =
-    buildScreenDestination<LoginViewModel, LoginCommandReceiver, LoginUiState>(
+    buildScreenDestination(
         destinationTarget =  Destination.LOGIN_DESTINATION,
         viewModelProvider = { hiltViewModel<LoginViewModel>() },
         screen = LoginScreen,
@@ -78,7 +78,7 @@ fun Content(
     ConstraintLayout(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(spacings.small)
     ) {
         val (appIcon, footer, loginArea) = createRefs()
 
@@ -86,7 +86,7 @@ fun Content(
             painter = painterResource(id = R.drawable.app_icon),
             contentDescription = null,
             modifier = Modifier
-                .size(300.dp)
+                .size(components.loginAppIcon)
                 .constrainAs(appIcon) {
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
@@ -106,15 +106,25 @@ fun Content(
             OutlinedTextField(
                 value = uiState.email,
                 onValueChange = { onExecuteCommand(LoginCommand.OnEmailValueChanged(it)) },
-                label = { Text(stringResource(R.string.login_email_label)) },
+                label = {
+                    Text(
+                        stringResource(R.string.login_email_label),
+                        fontSize = fontSizes.textNormal
+                    )
+                },
                 modifier = Modifier.fillMaxWidth(),
                 textStyle = TextStyle(fontSize = fontSizes.textNormal)
             )
-            Spacer(modifier = Modifier.height(4.dp))
+            Spacer(modifier = Modifier.height(components.loginTextSpacer))
             OutlinedTextField(
                 value = uiState.password,
                 onValueChange = { onExecuteCommand(LoginCommand.OnPasswordValueChanged(it)) },
-                label = { Text(stringResource(R.string.login_password_label)) },
+                label = {
+                    Text(
+                        stringResource(R.string.login_password_label),
+                        fontSize = fontSizes.textNormal
+                    )
+                },
                 visualTransformation = if (uiState.passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                 trailingIcon = {
                     IconButton(onClick = { onExecuteCommand(LoginCommand.ChangePasswordVisibility) }) {
@@ -127,7 +137,7 @@ fun Content(
                 modifier = Modifier.fillMaxWidth(),
                 textStyle = TextStyle(fontSize = fontSizes.textNormal)
             )
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(components.loginHeightSpacer))
             Button(
                 onClick = {
 
@@ -152,9 +162,9 @@ fun Content(
                 text = stringResource(R.string.other_options_text),
                 color = MaterialTheme.colorScheme.onBackground,
                 style = LocalTextStyle.current.copy(
-                    fontSize = 18.sp
+                    fontSize = fontSizes.textMediumSmall
                 ),
-                modifier = Modifier.padding(bottom = 8.dp)
+                modifier = Modifier.padding(bottom = spacings.xxSmall)
             )
             Row(
                 modifier = Modifier
@@ -162,7 +172,7 @@ fun Content(
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
                 IconButton(
-                    modifier = Modifier.size(50.dp),
+                    modifier = Modifier.size(components.loginIconButton),
                     onClick = {
 
                     }
@@ -173,7 +183,7 @@ fun Content(
                     )
                 }
                 IconButton(
-                    modifier = Modifier.size(50.dp),
+                    modifier = Modifier.size(components.loginIconButton),
                     onClick = {}
                 ) {
                     Image(
@@ -182,7 +192,7 @@ fun Content(
                     )
                 }
                 IconButton(
-                    modifier = Modifier.size(50.dp),
+                    modifier = Modifier.size(components.loginIconButton),
                     onClick = {
 
                     }
@@ -199,10 +209,10 @@ fun Content(
                     onExecuteCommand(LoginCommand.GoToRegister)
                 },
                 modifier = Modifier
-                    .padding(top = 16.dp),
+                    .padding(top = spacings.small),
                 style = LocalTextStyle.current.copy(
                     color = MaterialTheme.colorScheme.primary,
-                    fontSize = 14.sp
+                    fontSize = fontSizes.textSmall
                 )
             )
         }

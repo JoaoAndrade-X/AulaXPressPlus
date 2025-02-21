@@ -84,7 +84,7 @@ private fun LoadingAnimation(
             .fillMaxSize(),
     ) {
         LottieAnimation(
-            modifier = Modifier.scale(1.2f),
+            modifier = Modifier.scale(0.4f),
             composition = animatable.composition,
             progress = { animatable.progress },
             contentScale = ContentScale.Crop,
