@@ -1,8 +1,6 @@
 package com.joaoandrade.aulaxpressplus.ui.login
 
 import android.widget.Toast
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -37,22 +35,18 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.joaoandrade.aulaxpressplus.R
 import com.joaoandrade.aulaxpressplus.navigation.buildScreenDestination
 import com.joaoandrade.aulaxpressplus.shared.bases.Command
 import com.joaoandrade.aulaxpressplus.shared.bases.Screen
 import com.joaoandrade.aulaxpressplus.shared.enums.Destination
-import com.joaoandrade.aulaxpressplus.utils.components.userHasUsername
 
 val loginDestination =
     buildScreenDestination<LoginViewModel, LoginCommandReceiver, LoginUiState>(
-        Destination.LOGIN_DESTINATION,
-        LoginScreen,
+        destinationTarget =  Destination.LOGIN_DESTINATION,
+        viewModelProvider = { hiltViewModel<LoginViewModel>() },
+        screen = LoginScreen,
     )
 
 internal object LoginScreen: Screen<LoginUiState, LoginCommandReceiver> {
@@ -71,44 +65,7 @@ fun Content(
     uiState: LoginUiState,
     onExecuteCommand: (Command<LoginCommandReceiver>) -> Unit,
 ) {
-    val auth = FirebaseAuth.getInstance()
     val context = LocalContext.current
-
-    val googleSignInLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-        try {
-            val account = task.getResult(ApiException::class.java)
-            account?.idToken?.let { idToken ->
-                val credential = GoogleAuthProvider.getCredential(idToken, null)
-                auth.signInWithCredential(credential)
-                    .addOnCompleteListener { authResult ->
-                        if (authResult.isSuccessful) {
-                            val userId = auth.currentUser?.uid
-                            if (userId != null) {
-                                userHasUsername(context, userId) { hasUsername ->
-                                    if (hasUsername) {
-                                        onExecuteCommand(LoginCommand.GoToMain)
-                                    } else {
-                                        onExecuteCommand(LoginCommand.GoToUsernameCreation(userId))
-                                    }
-                                }
-                            } else {
-                                onExecuteCommand(LoginCommand.SetUserIdNotFoundError)
-                                Toast.makeText(context, uiState.errorMessage, Toast.LENGTH_LONG).show()
-                            }
-                        } else {
-                            onExecuteCommand(LoginCommand.SetLoginError)
-                            Toast.makeText(context, uiState.errorMessage, Toast.LENGTH_LONG).show()
-                        }
-                    }
-            }
-        } catch (e: ApiException) {
-            onExecuteCommand(LoginCommand.SetAuthExceptionError(e.message.orEmpty()))
-            Toast.makeText(context, uiState.errorMessage, Toast.LENGTH_LONG).show()
-        }
-    }
 
     LaunchedEffect(uiState.errorMessage) {
         if (uiState.hasErrorMessage()) {
@@ -169,18 +126,7 @@ fun Content(
             Spacer(modifier = Modifier.height(16.dp))
             Button(
                 onClick = {
-                    if (uiState.hasEmptyField()) {
-                        onExecuteCommand(LoginCommand.SetEmptyFieldError)
-                    } else {
-                        auth.signInWithEmailAndPassword(uiState.email, uiState.password)
-                            .addOnCompleteListener { task ->
-                                if (task.isSuccessful) {
-                                    onExecuteCommand(LoginCommand.GoToMain)
-                                } else {
-                                    onExecuteCommand(LoginCommand.SetUserNotFoundError)
-                                }
-                            }
-                    }
+
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -224,15 +170,7 @@ fun Content(
                 }
                 IconButton(
                     modifier = Modifier.size(50.dp),
-                    onClick = {
-                        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                            .requestIdToken(context.getString(R.string.default_web_client_id))
-                            .requestEmail()
-                            .build()
-
-                        val googleSignInClient = GoogleSignIn.getClient(context, gso)
-                        googleSignInLauncher.launch(googleSignInClient.signInIntent)
-                    }
+                    onClick = {}
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.gmail),

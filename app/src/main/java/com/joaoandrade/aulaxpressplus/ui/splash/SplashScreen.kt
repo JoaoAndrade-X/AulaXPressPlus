@@ -8,6 +8,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.layout.ContentScale
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCancellationBehavior
 import com.airbnb.lottie.compose.LottieCompositionSpec
@@ -21,8 +22,9 @@ import com.joaoandrade.aulaxpressplus.shared.enums.Destination
 
 val splashDestination =
     buildScreenDestination<SplashViewModel, SplashCommandReceiver, SplashUiState>(
-        Destination.SPLASH_DESTINATION,
-        SplashScreen,
+        destinationTarget =  Destination.SPLASH_DESTINATION,
+        viewModelProvider = { hiltViewModel<SplashViewModel>() },
+        screen = SplashScreen,
     )
 
 object SplashScreen : Screen<SplashUiState, SplashCommandReceiver> {
