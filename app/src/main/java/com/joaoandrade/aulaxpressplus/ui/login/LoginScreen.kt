@@ -30,6 +30,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
@@ -37,6 +38,7 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.joaoandrade.aulaxpressplus.R
+import com.joaoandrade.aulaxpressplus.dimensions.fontSizes
 import com.joaoandrade.aulaxpressplus.navigation.buildScreenDestination
 import com.joaoandrade.aulaxpressplus.shared.bases.Command
 import com.joaoandrade.aulaxpressplus.shared.bases.Screen
@@ -105,7 +107,8 @@ fun Content(
                 value = uiState.email,
                 onValueChange = { onExecuteCommand(LoginCommand.OnEmailValueChanged(it)) },
                 label = { Text(stringResource(R.string.login_email_label)) },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                textStyle = TextStyle(fontSize = fontSizes.textNormal)
             )
             Spacer(modifier = Modifier.height(4.dp))
             OutlinedTextField(
@@ -121,7 +124,8 @@ fun Content(
                         )
                     }
                 },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                textStyle = TextStyle(fontSize = fontSizes.textNormal)
             )
             Spacer(modifier = Modifier.height(16.dp))
             Button(
