@@ -12,11 +12,23 @@ open class Component {
     /** 4dp */
     open val loginTextSpacer = 4.dp
 
+    /** 4dp */
+    open val registerTextSpacer = 4.dp
+
     /** 16dp */
     open val loginHeightSpacer = 16.dp
 
+    /** 16dp */
+    open val registerHeightSpacer = 16.dp
+
     /** 50dp */
     open val loginIconButton = 50.dp
+
+    /** 50dp */
+    open val registerIconButton = 50.dp
+
+    /** 200dp */
+    open val registerAppIcon = 200.dp
 
     /** 300dp */
     open val loginAppIcon = 300.dp

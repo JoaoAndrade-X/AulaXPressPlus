@@ -24,7 +24,7 @@ internal class LoginViewModel
         override val uiState = _uiState.asStateFlow()
 
     override fun goToRegister() {
-        // navigationProvider.navigate(Destination.REGISTER_DESTINATION)
+        navigationProvider.navigate(Destination.REGISTER_DESTINATION)
     }
 
     override fun changePasswordVisibility() {

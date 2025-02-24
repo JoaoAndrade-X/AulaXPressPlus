@@ -1,6 +1,7 @@
 package com.joaoandrade.aulaxpressplus.navigation
 
 import com.joaoandrade.aulaxpressplus.ui.login.loginDestination
+import com.joaoandrade.aulaxpressplus.ui.register.registerDestination
 import com.joaoandrade.aulaxpressplus.ui.splash.splashDestination
 import dagger.Module
 import dagger.Provides
@@ -17,5 +18,6 @@ internal object NavigationModule {
         arrayOf(
             splashDestination,
             loginDestination,
+            registerDestination,
         )
 }
