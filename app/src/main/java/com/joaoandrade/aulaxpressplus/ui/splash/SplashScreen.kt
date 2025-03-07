@@ -8,6 +8,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCancellationBehavior
@@ -91,4 +92,12 @@ private fun LoadingAnimation(
             dynamicProperties = dynamicLottieProperties,
         )
     }
+}
+
+@PreviewLightDark
+@Composable
+fun Preview() {
+    SplashScreen(
+        SplashUiState(animationState = AnimationState.END),
+    ) {}
 }

@@ -1,7 +1,9 @@
 package com.joaoandrade.aulaxpressplus.navigation
 
+import com.joaoandrade.aulaxpressplus.ui.createusername.createUsernameDestination
 import com.joaoandrade.aulaxpressplus.ui.login.loginDestination
 import com.joaoandrade.aulaxpressplus.ui.register.registerDestination
+import com.joaoandrade.aulaxpressplus.ui.registrationsuccess.registrationSuccessDestination
 import com.joaoandrade.aulaxpressplus.ui.splash.splashDestination
 import dagger.Module
 import dagger.Provides
@@ -19,5 +21,7 @@ internal object NavigationModule {
             splashDestination,
             loginDestination,
             registerDestination,
+            createUsernameDestination,
+            registrationSuccessDestination,
         )
 }

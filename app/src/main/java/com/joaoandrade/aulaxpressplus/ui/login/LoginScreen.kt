@@ -33,6 +33,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.joaoandrade.aulaxpressplus.R
@@ -217,4 +218,12 @@ fun Content(
             )
         }
     }
+}
+
+@PreviewLightDark
+@Composable
+fun Preview() {
+    LoginScreen(
+        LoginUiState(),
+    ) {}
 }

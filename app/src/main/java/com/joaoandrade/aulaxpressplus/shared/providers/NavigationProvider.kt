@@ -20,7 +20,7 @@ class NavigationProvider(
 
     fun navigate(
         destination: Destination,
-        mode: NavigationMode? =null,
+        mode: NavigationMode? = null,
     ) {
         navController?.navigate(
             route = destination.route,
