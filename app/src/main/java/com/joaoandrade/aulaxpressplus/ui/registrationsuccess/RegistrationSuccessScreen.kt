@@ -22,7 +22,7 @@ internal object RegistrationSuccessScreen : Screen<RegistrationSuccessUiState, R
         uiState: RegistrationSuccessUiState,
         onExecuteCommand: (Command<RegistrationSuccessCommandReceiver>) -> Unit,
     ) {
-	Content(uiState, onExecuteCommand)
+	    Content(uiState, onExecuteCommand)
     }
 }
 
