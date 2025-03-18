@@ -9,5 +9,9 @@ internal interface CreateUsernameCommandReceiver :
         command.execute(this)
     }
 
-    fun createUsername()
+    fun onUsernameChanged(username: String)
+
+    fun updateErrorMessage(errorMessage: String)
+
+    fun navigateToHome()
 }

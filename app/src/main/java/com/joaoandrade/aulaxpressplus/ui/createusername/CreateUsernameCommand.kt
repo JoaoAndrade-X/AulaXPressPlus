@@ -4,9 +4,21 @@ import com.joaoandrade.aulaxpressplus.shared.bases.Command
 
 internal sealed interface CreateUsernameCommand :
     Command<CreateUsernameCommandReceiver> {
-    data object CreateUsername : CreateUsernameCommand {
+    data class OnUsernameChanged(private val username: String) : CreateUsernameCommand {
         override fun execute(receiver: CreateUsernameCommandReceiver) {
-            receiver.createUsername()
+            receiver.onUsernameChanged(username)
+        }
+    }
+
+    data class UpdateErrorMessage(private val errorMessage: String) : CreateUsernameCommand {
+        override fun execute(receiver: CreateUsernameCommandReceiver) {
+            receiver.updateErrorMessage(errorMessage)
+        }
+    }
+
+    data object NavigateToHome : CreateUsernameCommand {
+        override fun execute(receiver: CreateUsernameCommandReceiver) {
+            receiver.navigateToHome()
         }
     }
 }

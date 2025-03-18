@@ -35,6 +35,8 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.joaoandrade.aulaxpressplus.R
 import com.joaoandrade.aulaxpressplus.designs.LocalAppColors
+import com.joaoandrade.aulaxpressplus.designs.rossoCorsa
+import com.joaoandrade.aulaxpressplus.designs.tuftsBlue
 import com.joaoandrade.aulaxpressplus.dimensions.components
 import com.joaoandrade.aulaxpressplus.dimensions.fontSizes
 import com.joaoandrade.aulaxpressplus.dimensions.spacings
@@ -250,7 +252,7 @@ fun Content(
                 modifier = Modifier
                     .padding(top = spacings.small),
                 style = TextStyle(
-                    color = MaterialTheme.colorScheme.primary,
+                    color = tuftsBlue,
                     fontSize = fontSizes.textSmall
                 )
             )

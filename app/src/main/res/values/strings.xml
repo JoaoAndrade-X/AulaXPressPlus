@@ -4,7 +4,7 @@
 
     <string name="back">Voltar</string>
 
-    <!-- LoginScreen Strings -->
+    <!-- Login Strings -->
     <string name="login_email_label">E-mail</string>
     <string name="login_password_label">Senha</string>
     <string name="login_button">Entrar</string>
@@ -21,7 +21,7 @@
     <string name="create_username_in_use_error">O nome de usuário já está em uso.</string>
     <string name="create_username_empty_error">O nome de usuário não pode estar vazio.</string>
 
-    <!-- RegisterScreen Strings -->
+    <!-- Register Strings -->
     <string name="register_username_label">Usuário</string>
     <string name="register_email_label">E-mail</string>
     <string name="register_password_label">Senha</string>
@@ -46,9 +46,16 @@
     <string name="github_save_failed">Falha na autenticação com GitHub</string>
     <string name="github_login_failed">Falha ao entrar com GitHub</string>
 
-    <!-- RegistrationSuccessScreen Strings -->
+    <!-- RegistrationSuccess Strings -->
     <string name="registration_success_message">Usuário registrado com sucesso.</string>
     <string name="registration_success_button">Voltar ao Login</string>
+
+    <!-- RegistrationSuccess Strings -->
+    <string name="create_username_set">Defina um nome de Usuário</string>
+    <string name="create_username_user">Usuário</string>
+    <string name="create_username_continue">Continuar</string>
+    <string name="create_username_taken">O nome de usuário já está em uso.</string>
+    <string name="create_username_empty">O nome de usuário não pode estar vazio.</string>
 
     <!-- Common Strings -->
     <string name="app_icon_description">App Icon</string>
