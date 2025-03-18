@@ -23,7 +23,7 @@ constraintlayoutComposeAndroid = "1.1.0"
 playServices = "21.2.0"
 icons = "1.7.0"
 googleServices = "4.4.2"
-parcel = "2.1.20-RC3"
+parcel = "1.4.20"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
