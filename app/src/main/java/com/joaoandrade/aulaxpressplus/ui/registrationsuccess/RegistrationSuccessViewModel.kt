@@ -2,6 +2,7 @@ package com.joaoandrade.aulaxpressplus.ui.registrationsuccess
 
 import androidx.lifecycle.ViewModel
 import com.joaoandrade.aulaxpressplus.shared.bases.BaseViewModel
+import com.joaoandrade.aulaxpressplus.shared.enums.Destination
 import com.joaoandrade.aulaxpressplus.shared.providers.NavigationProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,6 +18,7 @@ internal class RegistrationSuccessViewModel
         private val _uiState = MutableStateFlow(RegistrationSuccessUiState())
         override val uiState = _uiState.asStateFlow()
 
-        override fun registrationSuccess() {
+        override fun navigateToLogin() {
+            navigationProvider.navigate(Destination.LOGIN_DESTINATION)
     	}
     }

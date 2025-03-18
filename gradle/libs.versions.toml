@@ -23,6 +23,7 @@ constraintlayoutComposeAndroid = "1.1.0"
 playServices = "21.2.0"
 icons = "1.7.0"
 googleServices = "4.4.2"
+parcel = "2.1.20-RC3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -64,3 +65,4 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 google-services = {id = "com.google.gms.google-services", version.ref = "googleServices"}
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
+parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "parcel" }

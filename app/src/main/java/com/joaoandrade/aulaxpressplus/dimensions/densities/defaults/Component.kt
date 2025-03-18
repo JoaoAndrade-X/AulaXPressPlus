@@ -33,6 +33,9 @@ open class Component {
     /** 250dp */
     open val createUsernameAppIcon = 250.dp
 
+    /** 250dp */
+    open val registrationSuccessAppIcon = 250.dp
+
     /** 300dp */
     open val loginAppIcon = 300.dp
 }

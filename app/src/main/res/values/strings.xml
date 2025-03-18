@@ -49,8 +49,6 @@
     <!-- RegistrationSuccess Strings -->
     <string name="registration_success_message">Usuário registrado com sucesso.</string>
     <string name="registration_success_button">Voltar ao Login</string>
-
-    <!-- RegistrationSuccess Strings -->
     <string name="create_username_set">Defina um nome de Usuário</string>
     <string name="create_username_user">Usuário</string>
     <string name="create_username_continue">Continuar</string>

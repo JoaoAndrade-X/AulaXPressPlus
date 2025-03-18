@@ -4,9 +4,9 @@ import com.joaoandrade.aulaxpressplus.shared.bases.Command
 
 internal sealed interface RegistrationSuccessCommand :
     Command<RegistrationSuccessCommandReceiver> {
-    data object RegistrationSuccess : RegistrationSuccessCommand {
+    data object NavigateToLogin : RegistrationSuccessCommand {
         override fun execute(receiver: RegistrationSuccessCommandReceiver) {
-            receiver.registrationSuccess()
+            receiver.navigateToLogin()
         }
     }
 }

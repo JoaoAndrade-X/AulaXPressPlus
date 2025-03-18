@@ -1,6 +1,7 @@
 package com.joaoandrade.aulaxpressplus.ui.createusername
 
 import androidx.lifecycle.ViewModel
+import com.joaoandrade.aulaxpressplus.navigation.params.CreateUsernameParam
 import com.joaoandrade.aulaxpressplus.shared.bases.BaseViewModel
 import com.joaoandrade.aulaxpressplus.shared.enums.Destination
 import com.joaoandrade.aulaxpressplus.shared.providers.NavigationProvider
@@ -18,6 +19,16 @@ internal class CreateUsernameViewModel
     ) : ViewModel(), BaseViewModel<CreateUsernameUiState>, CreateUsernameCommandReceiver {
         private val _uiState = MutableStateFlow(CreateUsernameUiState())
         override val uiState = _uiState.asStateFlow()
+
+        private val param: CreateUsernameParam? = navigationProvider.getParam()
+
+        init {
+            param?.let { p ->
+                _uiState.update {
+                    it.copy(userId = p.userId)
+                }
+            }
+        }
 
         override fun onUsernameChanged(username: String) {
             _uiState.update { it.copy(username = username) }

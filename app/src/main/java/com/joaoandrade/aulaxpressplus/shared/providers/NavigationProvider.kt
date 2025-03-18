@@ -1,7 +1,9 @@
 package com.joaoandrade.aulaxpressplus.shared.providers
 
 import android.app.Activity
+import android.os.Parcelable
 import androidx.core.os.bundleOf
+import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavDestination
 import androidx.navigation.NavOptions
 import androidx.navigation.get
@@ -13,6 +15,7 @@ import com.joaoandrade.aulaxpressplus.shared.enums.NavigationMode
 
 class NavigationProvider(
     private val navControllerProvider: NavControllerProvider,
+    private val savedStateHandle: SavedStateHandle,
     private val navigationControllerType: NavigationControllerType,
 ) {
     @PublishedApi
@@ -82,5 +85,10 @@ class NavigationProvider(
         } else {
             null
         }
+    }
+
+    fun <Param : Parcelable> getParam(): Param? {
+        val currentRoute = navController?.currentDestination?.route.orEmpty()
+        return savedStateHandle.get<Param>(currentRoute)
     }
 }

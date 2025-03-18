@@ -9,5 +9,5 @@ internal interface RegistrationSuccessCommandReceiver :
         command.execute(this)
     }
 
-    fun registrationSuccess()
+    fun navigateToLogin()
 }
