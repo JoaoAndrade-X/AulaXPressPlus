@@ -1,6 +1,8 @@
 package com.joaoandrade.aulaxpressplus.ui.login
 
 import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -70,6 +72,15 @@ fun Content(
     onExecuteCommand: (Command<LoginCommandReceiver>) -> Unit,
 ) {
     val context = LocalContext.current
+
+    val googleSignInLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        onExecuteCommand(LoginCommand.HandleGoogleSignInResult(result.data))
+    }
+    LaunchedEffect(Unit) {
+        onExecuteCommand(LoginCommand.InitGoogleSignInLauncher(googleSignInLauncher))
+    }
 
     LaunchedEffect(uiState.errorMessage) {
         if (uiState.hasErrorMessage()) {
@@ -186,7 +197,7 @@ fun Content(
                 }
                 IconButton(
                     modifier = Modifier.size(components.loginIconButton),
-                    onClick = {}
+                    onClick = { onExecuteCommand(LoginCommand.SignInWithGoogle(context)) }
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.gmail),

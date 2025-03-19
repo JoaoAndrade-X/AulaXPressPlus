@@ -26,6 +26,8 @@ import androidx.navigation.NavBackStackEntry
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.google.firebase.FirebaseApp
+import com.joaoandrade.aulaxpressplus.R
 import com.joaoandrade.aulaxpressplus.shared.bases.Command
 import com.joaoandrade.aulaxpressplus.shared.enums.Destination
 import com.joaoandrade.aulaxpressplus.utils.extensions.isDarkMode
@@ -38,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initFirebase()
         enableEdgeToEdge()
         setContent {
             val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -48,6 +51,16 @@ class MainActivity : AppCompatActivity() {
                     onExecuteCommand = viewModel::executeCommand
                 )
             }
+        }
+    }
+
+    private fun initFirebase() {
+        val firebaseApps = FirebaseApp.getApps(this)
+        if (firebaseApps.isEmpty()) {
+            FirebaseApp.initializeApp(this)
+            println(getString(R.string.firebase_initialize_success))
+        } else {
+            println(getString(R.string.firebase_already_started))
         }
     }
 
