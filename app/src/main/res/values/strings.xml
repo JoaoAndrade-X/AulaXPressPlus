@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">AulaXPress</string>
+    <string name="default_web_client_id">1001937113800-1i4col6sifc60ej2oqnesttrbm3cc0eo.apps.googleusercontent.com</string>
+
+    <string name="back">Voltar</string>
+
+    <!-- Login Strings -->
+    <string name="login_email_label">E-mail</string>
+    <string name="login_password_label">Senha</string>
+    <string name="login_button">Entrar</string>
+    <string name="google_login_description">Google Login</string>
+    <string name="user_id_not_found">Erro ao recuperar o ID do usuário.</string>
+    <string name="microsoft_login_description">Microsoft Login</string>
+    <string name="github_login_description">GitHub Login</string>
+    <string name="user_not_found">"O usuário não foi encontrado. Tente novamente"</string>
+    <string name="register_new_account_text">Ainda não tem uma conta? Cadastre-se</string>    <string name="login_error_user_not_found">O usuário não foi encontrado. Tente novamente</string>
+    <string name="login_error_google_auth">Falha ao fazer login com a conta Google.</string>
+    <string name="login_error_login_verify">Erro ao verificar username: %1$s</string>
+
+    <!-- CreateUsername Strings -->
+    <string name="create_username_in_use_error">O nome de usuário já está em uso.</string>
+    <string name="create_username_empty_error">O nome de usuário não pode estar vazio.</string>
+
+    <!-- Register Strings -->
+    <string name="register_username_label">Usuário</string>
+    <string name="register_email_label">E-mail</string>
+    <string name="register_password_label">Senha</string>
+    <string name="register_confirm_password_label">Confirmar Senha</string>
+    <string name="register_button">Criar conta</string>
+    <string name="register_text">Já tem uma conta? Faça login.</string>
+    <string name="register_error_invalid_email">O e-mail fornecido é inválido</string>
+    <string name="register_error_password_mismatch">As senhas não coincidem</string>
+    <string name="register_error_username_taken">Nome de usuário já está em uso</string>
+    <string name="register_error_email_taken">Este e-mail já está em uso.</string>
+    <string name="register_error_general">Erro desconhecido</string>
+    <string name="register_error_save_failed">Falha ao salvar os dados: %1$s</string>
+    <string name="register_fail_save_user_failed">Falha ao salvar usuário: %1$s</string>
+    <string name="register_error_save_user_failed">Erro ao salvar usuário: %1$s</string>
+    <string name="register_error_email_verify_failed">Erro ao verificar e-mail: %1$s</string>
+    <string name="google_save_failed">Falha ao registrar com a conta Google.</string>
+    <string name="google_register_description">Google Register</string>
+    <string name="microsoft_register_description">Microsoft Register</string>
+    <string name="github_register_description">GitHub Register</string>
+    <string name="email_registred">E-mail já está registrado</string>
+    <string name="user_saved_success">Usuário salvo com sucesso</string>
+    <string name="github_save_failed">Falha na autenticação com GitHub</string>
+    <string name="github_login_failed">Falha ao entrar com GitHub</string>
+
+    <!-- RegistrationSuccess Strings -->
+    <string name="registration_success_message">Usuário registrado com sucesso.</string>
+    <string name="registration_success_button">Voltar ao Login</string>
+    <string name="create_username_set">Defina um nome de Usuário</string>
+    <string name="create_username_user">Usuário</string>
+    <string name="create_username_continue">Continuar</string>
+    <string name="create_username_taken">O nome de usuário já está em uso.</string>
+    <string name="create_username_empty">O nome de usuário não pode estar vazio.</string>
+
+    <!-- Firebase -->
+    <string name="firebase_initialize_success">Firebase inicializado com sucesso!</string>
+    <string name="firebase_already_started">Firebase já está inicializado.</string>
+
+    <!-- Common Strings -->
+    <string name="app_icon_description">App Icon</string>
+    <string name="back_button_text">Voltar</string>
+    <string name="password_visibility_toggle">Visibilidade Senha</string>
+    <string name="other_options_text">Ou se preferir</string>
+    <string name="firestore">Firestore</string>
+    <string name="github">GitHubLogin</string>
+    <string name="error_empty_fields">Preencha todos os campos</string>
+    <string name="error_google_auth_exception">Erro na autenticação com o Google: %1$s</string>
+</resources>
