@@ -10,4 +10,6 @@ internal interface MainCommandReceiver: CommandReceiver<MainCommandReceiver> {
     }
 
     fun setNavHostController(navHostController: NavHostController)
+
+    fun onStart()
 }

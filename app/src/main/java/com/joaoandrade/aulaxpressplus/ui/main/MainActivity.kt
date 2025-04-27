@@ -1,10 +1,10 @@
 package com.joaoandrade.aulaxpressplus.ui.main
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
@@ -16,34 +16,36 @@ import androidx.compose.animation.shrinkOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.google.firebase.FirebaseApp
+import com.joaoandrade.aulaxpressplus.R
 import com.joaoandrade.aulaxpressplus.shared.bases.Command
 import com.joaoandrade.aulaxpressplus.shared.enums.Destination
-import com.joaoandrade.aulaxpressplus.utils.theme.AulaXPressPlusTheme
+import com.joaoandrade.aulaxpressplus.utils.extensions.isDarkMode
+import com.joaoandrade.aulaxpressplus.utils.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initFirebase()
         enableEdgeToEdge()
         setContent {
             val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-            AulaXPressPlusTheme {
+            setSystemBarsTheme(!uiState.theme.isDarkMode)
+            AppTheme(uiState.theme) {
                 Navigation(
                     uiState = uiState,
                     onExecuteCommand = viewModel::executeCommand
@@ -51,6 +53,27 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    private fun initFirebase() {
+        val firebaseApps = FirebaseApp.getApps(this)
+        if (firebaseApps.isEmpty()) {
+            FirebaseApp.initializeApp(this)
+            println(getString(R.string.firebase_initialize_success))
+        } else {
+            println(getString(R.string.firebase_already_started))
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.executeCommand(MainCommand.OnStart)
+    }
+
+    private fun setSystemBarsTheme(isLightMode: Boolean) =
+        with(WindowInsetsControllerCompat(window, window.decorView)) {
+            isAppearanceLightNavigationBars = isLightMode
+            isAppearanceLightStatusBars = isLightMode
+        }
 
     @Composable
     private fun Navigation(
@@ -82,7 +105,7 @@ class MainActivity : ComponentActivity() {
 }
 
 private fun AnimatedContentTransitionScope<NavBackStackEntry>.fromLogin() =
-    this.initialState.destination.route == Destination.SPLASH_SCREEN.route
+    this.initialState.destination.route == Destination.SPLASH_DESTINATION.route
 
 private fun popExitTransition(): ExitTransition {
     return slideOutHorizontally(

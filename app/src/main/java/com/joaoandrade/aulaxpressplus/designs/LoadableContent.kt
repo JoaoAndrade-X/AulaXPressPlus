@@ -15,7 +15,7 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.joaoandrade.aulaxpressplus.R
 import com.joaoandrade.aulaxpressplus.utils.components.KeyboardUtils.HideKeyboard
-import com.joaoandrade.aulaxpressplus.utils.theme.AulaXPressPlusTheme
+import com.joaoandrade.aulaxpressplus.utils.theme.AppTheme
 
 @Composable
 fun LoadableContent (
@@ -68,7 +68,7 @@ private fun LoadingScreen(isLoading: Boolean) {
 @Preview
 @Composable
 private fun LoadableContentPreview() {
-    AulaXPressPlusTheme {
+    AppTheme {
         LoadableContent(true) {
         }
     }

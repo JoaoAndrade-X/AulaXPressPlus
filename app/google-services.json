@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1001937113800",
+    "project_id": "aulaxpressplus",
+    "storage_bucket": "aulaxpressplus.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001937113800:android:dbf113ff18e00f919ecbfd",
+        "android_client_info": {
+          "package_name": "com.joaoandrade.aulaxpressplus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1001937113800-b3ba7e6iichpen5686crnae8vst4nm2t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.joaoandrade.aulaxpressplus",
+            "certificate_hash": "fe03dfba23c3366efc189a7b9e6e1b0e8df7fe12"
+          }
+        },
+        {
+          "client_id": "1001937113800-1i4col6sifc60ej2oqnesttrbm3cc0eo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMaC1r7TJOyDSluVwE0MM5B2aNdxTkrrw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1001937113800-1i4col6sifc60ej2oqnesttrbm3cc0eo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
